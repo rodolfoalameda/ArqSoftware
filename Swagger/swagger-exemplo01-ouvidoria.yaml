@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  title: API para o Sistema de Ouvidoria
+  description: API para o Sistema de Ouvidoria
+  version: 1.0.0
+host: localhost:8080
+basePath: /v1
+schemes:
+  - http
+  - https
+definitions:
+  Manifestacao:
+    type: object
+    properties:
+      codigo:
+        type: integer
+      solicitante:
+        type: string
+      data:
+        type: string
+        format: date
+      texto:
+        type: string
+        
+parameters:
+  manifestacao-id:
+    name: id
+    in: path
+    description: id da manifestação
+    type: integer
+    format: int32
+    required: true
+
+paths:
+  /manifestacao:
+    post:
+      summary: Registra uma nova manifestação
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: manifestacao
+          required: true
+          schema:
+            $ref: '#/definitions/Manifestacao'
+      responses:
+        '201':
+          description: Nova manifestação registrada
+          schema:
+            $ref: '#/definitions/Manifestacao'
+          headers:
+            Location:
+              description: uri da nova manifestação
+              type: string  
+              
+    get:
+      summary: Lista todas as manifestações
+      produces:
+        - application/json              
+      responses:
+        200:
+          description: "Listagem de manifestações"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Manifestacao"        
+              
+  /manifestacao/{id}:
+    get:
+      summary: Detalha uma manifestação
+      parameters:
+        - $ref: '#/parameters/manifestacao-id'
+      responses:
+        200:
+          description: 'Detalhes da Manifestação'
+          schema:
+            $ref: "#/definitions/Manifestacao"  
+        400:
+          description: 'ID inválido fornecido'
+        404:
+          description: 'Manifestação não encontrada'
+          
+    delete:
+      summary: Cancela um pagamento
+      parameters:
+        - $ref: '#/parameters/manifestacao-id'
+      responses:
+        '200':
+          description: 'Manifestação cancelada'
+          
+          
+          
+          
+          
+          
+          
+          

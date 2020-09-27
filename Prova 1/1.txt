@@ -1,0 +1,10 @@
+1) A arquitetura de micro serviços é baseada em um gateWay, um discovery e as entidades.
+O discovery, popularmente dito como nelson rubens, fica responsavel para passar para o gateway os ip's dos microserviços, para que estes não fiquem expostos,
+assim como passar também a saúde dos servidores, para que enventualmente, um novo servidor seja 'upado' em outra porta. 
+É interessante falar sobre o properties dos microserviços, cada um tem o seu, mas visando não desperdiçar energia, as configs podem ser colocadas em cloud como
+no git, assim o microserviço de config sai distribuindo para cada microserviço a suas próprias configurações.
+Grandes vantagens nesta arquiterura é que os serviços são separados, isolados e autonomos.
+Contras: Escalabildiade, Acoplamento, Manutenibilidade
+
+
+ 
