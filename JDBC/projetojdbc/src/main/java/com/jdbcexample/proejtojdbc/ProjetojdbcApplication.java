@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import db.DB;
 
-public class ProejtojdbcApplication {
+public class ProjetojdbcApplication {
 
 	public static void main(String[] args) {
 
