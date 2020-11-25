@@ -19,11 +19,11 @@ public class Vendedor implements Serializable{
 
 	}
 
-	public Vendedor(Integer id, String nome, String emai, Date dataNasc, double salario, Departamento departamento) {
+	public Vendedor(Integer id, String nome, String email, Date dataNasc, double salario, Departamento departamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.email = emai;
+		this.email = email;
 		this.dataNasc = dataNasc;
 		this.salario = salario;
 		
@@ -50,7 +50,7 @@ public class Vendedor implements Serializable{
 		return email;
 	}
 
-	public void setEmai(String emai) {
+	public void setEmail(String emai) {
 		this.email = emai;
 	}
 
